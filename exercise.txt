@@ -1,0 +1,31 @@
+1. how many dinosaurs we have
+
+   SELECT COUNT(name) FROM dinos;
+
+2.Find all the dinosaurs from Jurassic period
+
+  SELECT name, period FROM dinos WHERE period = 'Jurassic';
+
+3.Find the total sum length of all the dinosaurs from the Cretaceous period.
+
+  SELECT SUM(length) FROM dinos WHERE period = 'Cretaceous';
+
+4.Find all the dinosaurs from either the Jurassic OR Cretaceous periods, and order them by
+  their species name alphabetically.
+
+  SELECT name FROM dinos WHERE period = 'Jurassic' OR period = 'Cretaceous' ORDER BY name;
+
+5.Find all the dinosaurs from the t_order Saurischia that are Herbivorous.
+
+  SELECT name FROM dinos WHERE t_order = 'Saurischia' AND diet = 'Herbivorous'
+
+6.Find the shortest dinosaur, and rename it Shortie.
+
+  SELECT name FROM dinos WHERE length = (SELECT MIN(length) FROM dinos);     #gives the shortest dino
+
+  UPDATE dinos SET name = 'Shortie' WHERE id = 160;       # changes the name of this dino to SHORTIE
+
+7.Find the alphabetically first dinosaur, so we can make sure they're present for class.
+
+  SELECT name FROM dinos ORDER BY name ASC LIMIT 1;
+  
